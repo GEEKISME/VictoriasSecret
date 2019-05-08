@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.biotag.victoriassecret.SettingDistrictActivity"
+    android:background="@color/pinks"
+    android:gravity="center"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="请为设备设置其所处的区域:"
+        android:textColor="@color/advance_red"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:id="@+id/tv_tips"
+        android:paddingLeft="20dp"/>
+
+    <com.biotag.victoriassecret.FlexRadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/flexrg"
+        app:flexWrap="wrap"
+        android:layout_below="@+id/tv_tips"
+        android:layout_marginTop="50dp"
+        />
+
+
+
+
+    <Button
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/flexrg"
+        android:id="@+id/btn_ok"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="确定"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:background="@drawable/query_bg"/>
+</RelativeLayout>

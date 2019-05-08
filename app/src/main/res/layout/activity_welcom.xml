@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.biotag.victoriassecret.WelcomActivity"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="800dp"
+        android:layout_height="700dp"
+        android:layout_centerInParent="true"
+        android:padding="40dp">
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/VS"
+            android:src="@mipmap/vicseclogo"
+            />
+        <FrameLayout
+            android:visibility="gone"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/VS"
+            android:id="@+id/fl_anim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/homepage_disk_button_orange_normal" />
+
+            <ImageView
+                android:id="@+id/iv_rotate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/homepage_disk_orange_normal" />
+
+            <view.RadiationView
+                android:id="@+id/rv"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAllCaps="false"
+                android:text="Scanning..."
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+        </FrameLayout>
+
+        <TextView
+            android:visibility="gone"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/fl_anim"
+            android:layout_marginTop="50dp"
+            android:id="@+id/tv_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textColor="@color/advance_red"
+            android:text="请将门票贴于下方感应区以扫描登录......"
+            />
+
+        <RelativeLayout
+            android:visibility="visible"
+            android:layout_below="@+id/VS"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/rl_staffinfo"
+            android:layout_width ="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp">
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal"
+                android:id="@+id/ll_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textSize="30sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="姓名 :"
+                    android:textColor="@color/sligntblack"
+                    />
+                <TextView
+                    android:textSize="30sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_name"
+                    android:text="                 "
+                    android:textColor="@color/sligntblack"
+                    android:layout_marginLeft="20dp"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/ll_name"
+                android:layout_marginTop="40dp"
+                android:id="@+id/ll_staffno"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textSize="40sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Staff No. :"
+                    android:textColor="@color/sligntblack"
+                    />
+                <TextView
+                    android:textSize="40sp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_staffno"
+                    android:text="                 "
+                    android:textColor="@color/sligntblack"
+                    android:layout_marginLeft="54dp"/>
+            </LinearLayout>
+            <Button
+                android:layout_below="@+id/ll_staffno"
+                android:text="Login"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:layout_marginTop="80dp"
+                android:clickable="true"
+                android:background="@drawable/query_bg"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_login"
+                android:layout_centerHorizontal="true"
+                />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
