@@ -18,6 +18,9 @@ android {
         versionCode 6
         versionName "6.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk{
+            abiFilters "armeabi","armeabi-v7a"
+        }
     }
     buildTypes {
         release {

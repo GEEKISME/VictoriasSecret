@@ -91,6 +91,7 @@ public class GuestInfoActivity extends AppCompatActivity {
             switch (status) {
                 case LoaderCallbackInterface.SUCCESS:
                     initializeOpenCVDependencies();
+                    openCvCameraView.enableView();
                     break;
                 default:
                     super.onManagerConnected(status);
@@ -106,6 +107,7 @@ public class GuestInfoActivity extends AppCompatActivity {
             InputStream is = getResources().openRawResource(R.raw.lbpcascade_frontalface);
             File cascadeDir = getDir("cascade", Context.MODE_PRIVATE);
             File mCascadeFile = new File(cascadeDir, "lbpcascade_frontalface.xml");
+//            File mCascadeFile = new File(cascadeDir, "lbpcascade_dog.xml");
             FileOutputStream fos = new FileOutputStream(mCascadeFile);
             byte[] buffer = new byte[4096];
             int bytesRead;
@@ -120,7 +122,7 @@ public class GuestInfoActivity extends AppCompatActivity {
             Log.d("tms", "error loading cascade");
         }
         //// And we are ready to go
-        openCvCameraView.enableView();
+//        openCvCameraView.enableView();
     }
 
 
@@ -319,6 +321,14 @@ public class GuestInfoActivity extends AppCompatActivity {
                 return inputFrame;
             }
         });
+
+        // And we are ready to go
+
+        openCvCameraView.enableView();
+        openCvCameraView.setCameraIndex(99);
+
+//        initializeOpenCVDependencies();
+
         RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         rl_wrapcamera.addView(openCvCameraView, lp);
 //        initlistener();
@@ -740,9 +750,12 @@ public class GuestInfoActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         if (!OpenCVLoader.initDebug()) {
-            Log.i(TAG, "opencv init error");
+//            OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION, this, baseLoaderCallback);
+            OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_9,this,mLoaderCallback);
+        }else {
+//            initializeOpenCVDependencies();
+            mLoaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS);
         }
-        initializeOpenCVDependencies();
         Log.i(Constants.TAG,"onResume");
     }
 
@@ -750,6 +763,9 @@ public class GuestInfoActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         Log.i(Constants.TAG,"onPause");
+        if(openCvCameraView!=null){
+            openCvCameraView.disableView();
+        }
     }
 
     @Override
